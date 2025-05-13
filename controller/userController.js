@@ -67,6 +67,10 @@ router.post('/login', async(req,res) =>{
     res.status(400).json({message:'username invalid or user not registered'})
     }
 
+    if(checkUsername.blocked==true){
+        return res.status(400).json({message : "You are blocked from our portal"});
+    }
+
     if (checkUsername.type != type){
         res.status(400).json({message: `No data for ${type} found, Login under correct role`});
         return;

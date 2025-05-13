@@ -1,5 +1,6 @@
 const express=require('express');
 const jobs=require('../model/jobModel');
+const application=require('../model/applicationModel');
 const jwt=require('jsonwebtoken');
 const router=express.Router();
 const employee=require('../model/userModel');
@@ -36,9 +37,7 @@ router.post('/createJob/:emp_id',verifyToken,async(req,res)=>{
   }
     
     const employeeCheck= await employee.findById(emp_id);
-
-    console.log(`Employee check : ${employeeCheck}`);
-
+    
     if(employeeCheck){
     } else{
         res.status(400).json({message:"Please log in to create a job"});
@@ -71,7 +70,7 @@ router.post('/createJob/:emp_id',verifyToken,async(req,res)=>{
     
     if(newJob){
         console.log('Job addedd successfully');
-        res.status(200).json({message:"Job added successfully"});
+        res.status(201).json({message:"Job added successfully"});
     }
     else{
        return res.status(400).json({message:"Error creating job"});
@@ -79,7 +78,7 @@ router.post('/createJob/:emp_id',verifyToken,async(req,res)=>{
 
 });
 
-router.post('/updateTitle/:job_id', verifyToken,async(req,res)=>{
+router.patch('/updateTitle/:job_id', verifyToken,async(req,res)=>{
     const {job_id}=req.params;
     const {title}=req.body;
 
@@ -126,7 +125,7 @@ router.post('/updateDescription/:job_id',verifyToken,async(req,res)=>{
     try{
 
      if (req.user.type !== "employee") {
-    return res.status(403).json({ message: "Only employees can update jobs" });
+    return res.status(400).json({ message: "Only employees can update jobs" });
   }
     
     const employeeCheck= await employee.findById(req.user.id);
@@ -166,7 +165,7 @@ router.post('/updateLocation/:job_id',verifyToken,async(req,res)=>{
     try{
 
      if (req.user.type !== "employee") {
-    return res.status(403).json({ message: "Only employees can update jobs" });
+    return res.status(400).json({ message: "Only employees can update jobs" });
   }
     
     const employeeCheck= await employee.findById(req.user.id);
@@ -206,7 +205,7 @@ router.post('/updateSalary/:job_id',verifyToken,async(req,res)=>{
     try{
 
      if (req.user.type !== "employee") {
-    return res.status(403).json({ message: "Only employees can update jobs" });
+    return res.status(400).json({ message: "Only employees can update jobs" });
   }
     
     const employeeCheck= await employee.findById(req.user.id);

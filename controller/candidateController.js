@@ -95,7 +95,7 @@ router.post(
       appliedAt
     });
 
-    return res.status(200).json({ message: 'Applied successfully', application: newApplication });
+    return res.status(201).json({ message: 'Applied successfully', application: newApplication });
   }
 );
 
