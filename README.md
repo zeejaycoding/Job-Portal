@@ -15,6 +15,18 @@ A fully functional Job Portal built with **Node.js**, **Express**, and **MongoDB
 - View admin stats (total users, jobs, applications)
 - Delete users (except other admins)
 - Block/unblock users
+- Delete Users/Jobs
+
+### 🧑‍💼 Employees
+- Create Jobs
+- Update Jobs
+- Veiw Applications
+
+### 🧑‍💼 Candidates
+- View Jobs
+- Apply to a job
+- Block/unblock users
+
 
 ---
 
