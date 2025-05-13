@@ -1,7 +1,6 @@
 # 💼 JobPortal
 
-A fully functional Job Portal built with **Node.js**, **Express**, and **MongoDB**, designed to manage job listings, user accounts, and admin functionalities such as blocking/unblocking users and job filtering/searching by keyword, location, or tags.
-
+A fully functional Job Portal built with **Node.js**, **Express**, and **MongoDB**, designed to manage job listings, user accounts
 ---
 
 ## 🚀 Features
