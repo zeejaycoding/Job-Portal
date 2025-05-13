@@ -29,6 +29,10 @@ const userSchema=mongoose.Schema(
         type:{
             type: String,
             required: true
+        },
+        blocked:{
+            type:Boolean,
+            default:false
         }
     }
 )
